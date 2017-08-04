@@ -3,7 +3,18 @@
 let myApp = angular.module("MyApp", ["ngRoute"])
 .constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com");
 
-let isAuth = (UserFactory)
+let isAuth = (UserFactory) => {
+  return new Promise( (resolve,reject) => {
+    UserFactory.isAuthenticated()
+    .then( (userBoolean) => {
+      if(userBoolean)
+        resolve();
+      else
+        reject();
+    });
+  });
+};
+
 import igdb from 'igdb-api-node';
 
 const client = igdb('3e58ec693ab698ba8d25a4aec1f14631');
