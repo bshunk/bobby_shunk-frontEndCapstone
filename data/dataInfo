@@ -13,13 +13,35 @@ http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386
 **API SEARCH FOR Metal Gear:
 http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="metal gear"&resources=game
 
-**API DEARCH FOR Witcher:
+**API SEARCH FOR Witcher:
 http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="witcher"&resources=game
 
-**API DEARCH FOR _:
+**API SEARCH FOR Grand Theft:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="grand theft"&resources=game
 
+**API SEARCH FOR Madden:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="madden"&resources=game
 
+**API SEARCH FOR Borderlands:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="borderlands"&resources=game
 
+**API SEARCH FOR Uncharted:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="uncharted"&resources=game
+
+**API SEARCH FOR NCAA:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="NCAA"&resources=game
+
+**API SEARCH FOR Marvel:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="Marvel"&resources=game
+
+**API SEARCH FOR Call of Duty:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="call of duty"&resources=game
+
+**API SEARCH FOR Battlefield:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="battlefield"&resources=game
+
+**API SEARCH FOR Super Mario:
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="super mario"&resources=game
 
 
 
