@@ -1,7 +1,8 @@
 'use strict';
 
 let myApp = angular.module("MyApp", ["ngRoute"])
-.constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com");
+.constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com")
+.constant("APIUrl", "http://www.giantbomb.com/api/search?api_key=");
 
 let isAuth = (UserFactory) => {
   return new Promise( (resolve,reject) => {
@@ -21,19 +22,19 @@ myApp.config( ($routeProvider) => {
     templateUrl: 'partials/login.html',
     controller: 'UserController'
   })
-  .when('/games/home.html', {
+  .when('/games/home', {
     templateUrl: 'partials/home.html',
-    controller: 'GameController',
+    controller: 'ApiGameController',
     resolve: {isAuth}
   })
-  .when('/games/userDatabase.html', {
+  .when('/games/userDatabase', {
     templateUrl: 'partials/game-form.html',
-    controller: 'addGameController',
+    controller: 'UserGameController',
     resolve: {isAuth}
   })
-  .when('/games/detail/:gameId.html', {
+  .when('/games/detail/:gameId', {
     templateUrl: 'partials/game-detail.html',
-    controller: 'editGameController',
+    controller: 'UserGameController',
     resolve: {isAuth}
   })
   .when('/games/edit/:gameId', {
@@ -41,9 +42,5 @@ myApp.config( ($routeProvider) => {
     controller: 'editGameController',
     resolve: {isAuth}
   })
-  .when('/games/review/:gameId', {
-    templateUrl: 'partials/game-form.html',
-    controller: 'editGameController',
-    resolve: {isAuth}
-  });
+  .otherwise('.');
 });

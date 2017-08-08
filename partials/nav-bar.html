@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#/">Game Review</a>
+      <a class="navbar-brand" href="#!/games/home">Home</a>
     </div>
     <!---search -->
     <div class="col-xs-6 searchbox" ng-show="isLoggedIn">
@@ -21,8 +21,7 @@
     <!-- collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li ng-show="isLoggedIn"><a ng-href="#!/games/userDatabase">All Games</a></li>
-        <li ng-show="isLoggedIn"><a ng-href="#!/games/detail/:gameId.html">My Games</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/games/userDatabase">My Games</a></li>
         <li><a ng-show="isLoggedIn" ng-click="logout()">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

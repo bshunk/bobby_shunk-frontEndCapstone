@@ -5,7 +5,7 @@ myApp.controller("NavController", function($scope, $window, UserFactory) {
   // sets searchText to equal the results of filter factory
   // $scope.searchText = FilterFactory;
   $scope.isLoggedIn = false;
-
+  console.log("$scope.isLoggedIn ??", $scope.isLoggedIn);
   // listen for changes to auth state. If logged in, change isLoggedIn to true so the search input, userDB btn, and logout show
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
