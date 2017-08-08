@@ -1,8 +1,32 @@
 <div class="homePage">
   <h1>Homepage / API Database</h1>
-  <div>
-    BOUND TO GAME CONTROLLER
+  <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
+</div>
+
+<div class="container">
+  <form name="workout">
+    <label for="workout"> Select A Body Part: </label><br>
+    <select ng-change="chosenOption()" name="workout" id="BodyParts" ng-model="bodypart">
+      <!-- <option ng-repeat="workoutItem in workouts" value="workoutItem.Bodypart"></option> -->
+      <option value="Chest">Chest</option>
+      <option value="Shoulders">Shoulders</option>
+      <option value="Legs">Legs</option>
+      <option value="Triceps">Triceps</option>
+      <option value="Biceps">Biceps</option>
+      <option value="Back">Back</option>
+      <option value="Abs">Abs</option>
+    </select>
+  </form>
+</div>
+<div ng-show="selectChanged" ng-repeat="workoutItem in workouts | filter:bodypart">
+  <div class="workoutCard">
+    <h4 class="card-text">{{workoutItem.BodyPart}}</h4>
+    <p class="card-text">Exercise Name: {{workoutItem.description}}</p>
+    <img class="card-img-top" ng-src="{{workoutItem.url}}" alt="Card image cap">
+    <p class="card-text">Number Of Sets: {{workoutItem.sets}}</p>
+    <p class="card-text">Number Of Reps To Cut Weight: {{workoutItem.repsL}}</p>
+    <p class="card-text">Number Of Reps To Gain Muscle: {{workoutItem.repsG}}</p>
+    <p class="card-text">Rest Time Between Sets: {{workoutItem.Rest}}</p>
+    <input type="button" class="btn btn-default"  ng-click="saveWorkout()" value="Add To My Workouts">
   </div>
-    
-  </section>
 </div>

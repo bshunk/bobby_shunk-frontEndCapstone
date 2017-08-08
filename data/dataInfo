@@ -43,6 +43,15 @@ http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386
 **API SEARCH FOR Super Mario:
 http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="super mario"&resources=game
 
+manipulate the rest of the data thats getting
+
+object.data.results = [];
+$scope.put that array on scope
+from that array, extract all the information i want from each object with ng-repeat
+
+
+
+
 
 
 

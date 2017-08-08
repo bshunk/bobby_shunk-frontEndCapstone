@@ -1,7 +1,8 @@
 'use strict';
 
 let myApp = angular.module("MyApp", ["ngRoute"])
-.constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com");
+.constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com")
+.constant("APIUrl", "http://www.giantbomb.com/api/search?api_key=");
 
 let isAuth = (UserFactory) => {
   return new Promise( (resolve,reject) => {

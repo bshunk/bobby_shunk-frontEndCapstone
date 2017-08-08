@@ -10,29 +10,30 @@ myApp.controller("ApiGameController", function($scope, $window, UserFactory, Gam
   .then( (user) => {
     console.log("user status", user);
     currentUser = UserFactory.getUser();
-    fetchGames();
+    
+    $scope.fetchGames = () => {
+      let gameArr = [];
+      console.log("Fetch called");
+      GameFactory.getGamesFromDatabase("Destiny")
+      .then( (savedGames) => {
+        console.log("saved games data", savedGames);
+        let gameData = savedGames.data;
+        Object.keys(savedGames).forEach( (key) => {
+          gameData[key].id = key;
+          gameArr.push(gameData[key]);
+        });
+        $scope.games = gameArr;
+      })
+      .catch( (err) => {
+        console.log("error!", err);
+      });
+    };
   });
 
   // sets searchText to equal the result of FilterFactory
   // $scope.searchText = FilterFactory;
 
   // for viewing all game items and saving a game from user DB
-  function fetchGames() {
-    let gameArr = [];
-    console.log("Fetch called");
-    GameFactory.getGamesFromDatabase(currentUser)
-    .then( (savedGames) => {
-      console.log("saved games data", savedGames);
-      let gameData = savedGames.data;
-      Object.keys(savedGames).forEach( (key) => {
-        gameData[key].id = key;
-        gameArr.push(gameData[key]);
-      });
-      $scope.games = gameArr;
-    })
-    .catch( (err) => {
-      console.log("error!", err);
-    });
-  }
+  
 
 });

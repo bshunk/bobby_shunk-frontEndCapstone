@@ -1,7 +1,7 @@
 'use strict';
 
 // setting myApp.factory to equal UserFactory within partial with the anonymous function called expecting $q, $http, FirebaseUrl and FBCreds to be passed in at some point
-myApp.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds) {
+myApp.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds) {
   
   // setting config to equal the object containing the firebase key and auth domain
   var config = {
