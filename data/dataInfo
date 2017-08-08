@@ -1,5 +1,5 @@
 **API SEARCH FOR DESTINY:
-**http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="destiny"&resources=game
+http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="destiny"&resources=game
 
 **API SEARCH FOR Zelda:
 http://www.giantbomb.com/api/search?api_key=4af988d9d18c406d89e8f73f5f358431e386c468&format=json&query="zelda"&resources=game
