@@ -1,7 +1,4 @@
 'use strict';
-// global.mashapeKey = '3e58ec693ab698ba8d25a4aec1f14631';
-// const client = igdb('3e58ec693ab698ba8d25a4aec1f14631');
-// console.log(client);
 
 let myApp = angular.module("MyApp", ["ngRoute"])
 .constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com");
@@ -18,16 +15,35 @@ let isAuth = (UserFactory) => {
   });
 };
 
-// client.games({
-//     fields: '*', // Return all fields
-//     limit: 5, // Limit to 5 results
-//     offset: 15 // Index offset for results
-// }).then(response => {
-//     // response.body contains the parsed JSON response to this query
-// }).catch(error => {
-//     throw error;
-// });
-// console.log("client", client);
-
-
-
+myApp.config( ($routeProvider) => {
+  $routeProvider
+  .when('/', {
+    templateUrl: 'partials/login.html',
+    controller: 'UserController'
+  })
+  .when('/games/home.html', {
+    templateUrl: 'partials/home.html',
+    controller: 'GameController',
+    resolve: {isAuth}
+  })
+  .when('/games/userDatabase.html', {
+    templateUrl: 'partials/game-form.html',
+    controller: 'addGameController',
+    resolve: {isAuth}
+  })
+  .when('/games/detail/:gameId.html', {
+    templateUrl: 'partials/game-detail.html',
+    controller: 'editGameController',
+    resolve: {isAuth}
+  })
+  .when('/games/edit/:gameId', {
+    templateUrl: 'partials/game-form.html',
+    controller: 'editGameController',
+    resolve: {isAuth}
+  })
+  .when('/games/review/:gameId', {
+    templateUrl: 'partials/game-form.html',
+    controller: 'editGameController',
+    resolve: {isAuth}
+  });
+});
