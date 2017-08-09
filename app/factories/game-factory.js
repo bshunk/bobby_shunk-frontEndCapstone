@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.factory("GameFactory", function($q, $http, FirebaseUrl, APICreds, APIUrl) {
+myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds, APIUrl) {
 
   let getGamesFromDatabase = (searchParameters) => {
     console.log("searchParameters?", searchParameters.searchTerm);
@@ -17,24 +17,35 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, APICreds, APIUrl) 
     });
   };
 
-  return{ getGamesFromDatabase };
+  let postNewGame = (savedGame) => {
+    console.log("savedGame", savedGame);
+    return $q( (resolve, reject) => {
+      $http.post(`${FirebaseUrl}games.json`,
+        angular.toJson(savedGame))
+      .then( (savedGameData) => {
+        resolve(savedGameData);
+      })
+      .catch( (err) => {
+        reject(err);
+      });
+    });
+  };
+
+  let getSavedGames = (savedGamed) => {
+    return $q( (resolve, reject) => {
+      $http.get(`${FirebaseUrl}games.json`)
+      .then( (games) => {
+        resolve(games);
+      })
+      .catch( (err) => {
+        console.log("error", err);
+        reject(err);
+      });
+    });
+  };
+
+  return{ getGamesFromDatabase, postNewGame, getSavedGames };
 });
-
-//   let getTodoList = (userId) => {
-//     console.log("userId", userId);
-//     return $q( (resolve, reject) => {
-//       $http.get(`${FirebaseUrl}todos.json?orderBy="uid"&equalTo="${userId}"`)
-//       .then( (todoData) => {
-//         resolve(todoData);
-//       })
-//       .catch( (err) => {
-//         console.log("oops", err);
-//         reject(err);
-//       });
-//     });
-//   };
-
-// });
 
 //   let postNewItem = (newItem) => {
 //     return $q( (resolve, reject) => {

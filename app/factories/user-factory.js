@@ -14,16 +14,16 @@ myApp.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds)
 
   // setting current user to equal null because so when no one is logged in a profile won't display
   let currentUser = null;
-  console.log("this is what current user equals", currentUser);
+  // console.log("this is what current user equals", currentUser);
 
   let isAuthenticated = function() {
-    console.log("isAuthenticated called");
+    // console.log("isAuthenticated called");
     return new Promise( (resolve, reject) => {
-      console.log("firing onAuthStateChanged");
+      // console.log("firing onAuthStateChanged");
       firebase.auth().onAuthStateChanged(function(user) {
-        console.log("onAuthStateChanged finished");
+        // console.log("onAuthStateChanged finished");
         if (user) {
-          console.log("user", user);
+          // console.log("user", user);
           currentUser = user.uid;
           resolve(true);
         } else {

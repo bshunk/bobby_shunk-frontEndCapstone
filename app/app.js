@@ -1,7 +1,7 @@
 'use strict';
 
 let myApp = angular.module("MyApp", ["ngRoute", "ngSanitize"])
-.constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com")
+.constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com/")
 .constant("APIUrl", "http://www.giantbomb.com/api/search?api_key=");
 
 let isAuth = (UserFactory) => {
@@ -24,12 +24,12 @@ myApp.config( ($routeProvider) => {
   })
   .when('/games/home', {
     templateUrl: 'partials/home.html',
-    controller: 'ApiGameController',
+    controller: 'GameController',
     resolve: {isAuth}
   })
   .when('/games/userDatabase', {
-    templateUrl: 'partials/game-form.html',
-    controller: 'UserGameController',
+    templateUrl: 'partials/user-games.html',
+    controller: 'GameController',
     resolve: {isAuth}
   })
   .when('/games/detail/:gameId', {
@@ -42,5 +42,5 @@ myApp.config( ($routeProvider) => {
     controller: 'editGameController',
     resolve: {isAuth}
   })
-  .otherwise('.');
+  .otherwise('/');
 });

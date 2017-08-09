@@ -1,22 +1,14 @@
-<div contoller="ApiGameController">
-  <!-- <h1>Homepage / API Database</h1> -->
-  <!---search -->
-  <!-- <div class="col-xs-6 searchbox" ng-show="isLoggedIn"> -->
-    <!-- <div class="input-group"> -->
-      <!-- <span class="input-group-btn"> -->
-        <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-      <!-- </span> -->
-      <input type="text" placeholder="Search games..." ng-model="searchText.searchTerm">
-    <!-- </div> -->
-  <!-- </div> -->
-  <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
 <div>
-  <ul ng-repeat="game in games">
-    <li><h2>{{game.name}}</h2></li>
-    <li ng-bind-html="game.description"></li>
-    <li><img src="{{game.image.medium_url}}"></li>
+  <h1>Find A Game!</h1>
+  <input type="text" placeholder="Search games..." ng-model="searchText.searchTerm">
+  <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
+  <div class="gameCards">
+    <ul ng-repeat="game in games">
+      <li><h2>{{game.name}}</h2></li>
+      <!-- <li ng-bind-html="game.description"></li> -->
+      <li><img class="gameImage" src="{{game.image.medium_url}}"></li>
+      <button ng-click="saveGameToUser(gameData)">Save</button>
+    </ul>
     <br>
-  </ul>
-</div>
-
+  </div>
 </div>
