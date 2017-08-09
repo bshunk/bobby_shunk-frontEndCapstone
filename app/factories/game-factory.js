@@ -3,10 +3,11 @@
 myApp.factory("GameFactory", function($q, $http, FirebaseUrl, APICreds, APIUrl) {
 
   let getGamesFromDatabase = (searchParameters) => {
-    console.log("searchParameters?", searchParameters);
+    console.log("searchParameters?", searchParameters.searchTerm);
     return $q( (resolve, reject) => {
-      $http.get(`${APIUrl}${APICreds.key}&format=json&query="${searchParameters}"&resources=game`)
+      $http.get(`${APIUrl}${APICreds.key}&format=json&query=${searchParameters.searchTerm}&resources=game`)
       .then( (gameData) => {
+        console.log("gameData equals= ", gameData);
         resolve(gameData);
       })
       .catch( (err) => {
@@ -18,21 +19,6 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, APICreds, APIUrl) 
 
   return{ getGamesFromDatabase };
 });
-
-
-// // Simple GET request example:
-// $http({
-//   method: 'GET',
-//   url: '/someUrl'
-// }).then(function successCallback(response) {
-//     // this callback will be called asynchronously
-//     // when the response is available
-//   }, function errorCallback(response) {
-//     // called asynchronously if an error occurs
-//     // or server returns response with an error status.
-//   });
-
-
 
 //   let getTodoList = (userId) => {
 //     console.log("userId", userId);
