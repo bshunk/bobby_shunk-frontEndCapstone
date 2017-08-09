@@ -1,6 +1,6 @@
 'use strict';
 
-let myApp = angular.module("MyApp", ["ngRoute"])
+let myApp = angular.module("MyApp", ["ngRoute", "ngSanitize"])
 .constant("FirebaseUrl", "https://bobbys-frontend-capstone.firebaseio.com")
 .constant("APIUrl", "http://www.giantbomb.com/api/search?api_key=");
 
