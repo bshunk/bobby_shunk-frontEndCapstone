@@ -34,12 +34,12 @@ myApp.config( ($routeProvider) => {
   })
   .when('/games/detail/:gameId', {
     templateUrl: 'partials/game-detail.html',
-    controller: 'UserGameController',
+    controller: 'GameController',
     resolve: {isAuth}
   })
   .when('/games/edit/:gameId', {
     templateUrl: 'partials/game-form.html',
-    controller: 'editGameController',
+    controller: 'GameController',
     resolve: {isAuth}
   })
   .otherwise('/');

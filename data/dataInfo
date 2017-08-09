@@ -49,10 +49,8 @@ object.data.results = [];
 $scope.put that array on scope
 from that array, extract all the information i want from each object with ng-repeat
 
+GOALS:
 
+make sure i can get user games back from firebase, and then be able to update somehow (description? other properties that could be used to be edited by the user {complete date, user review, etc.}). Once I can see the data, update it, and delete it- MVP is reached 
 
-
-
-
-
-
+when i hit mvp, go through and determine how i want things to look and set up maybe another column on project board for extra features and start addign them in based on what's important and try to get to those extra features. 
