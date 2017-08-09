@@ -1,0 +1,14 @@
+<div ng-controller="AddGameController">
+  <h1>Checkout Your Games!</h1>
+  <div>
+    <ul ng-repeat="game in games">
+      <li><h2>{{game.name}}</h2></li>
+      <!-- <li ng-bind-html="game.description"></li> -->
+      <li><img class="gameImage" src="{{game.image.medium_url}}"></li>
+      <button ng-click="saveGameToUser()">Save</button>
+      <br>
+    </ul>
+  </div>
+</div>
+
+
