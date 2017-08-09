@@ -12,9 +12,10 @@
   <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
 <div>
   <ul ng-repeat="game in games">
-    <li>{{game.name}}</li>
+    <li><h2>{{game.name}}</h2></li>
     <li ng-bind-html="game.description"></li>
-    <li><img src="{{game.image.icon_url}}"></li>
+    <li><img src="{{game.image.medium_url}}"></li>
+    <br>
   </ul>
 </div>
 
