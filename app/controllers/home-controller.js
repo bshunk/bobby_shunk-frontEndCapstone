@@ -11,19 +11,19 @@ myApp.controller("HomeController", function($scope, $window, UserFactory, GameFa
   // authenticates user so data is stored to their account
   UserFactory.isAuthenticated()
   .then( (user) => {
-    console.log("user status", user);
+    // console.log("user status", user);
     currentUser = UserFactory.getUser();
   });
     
   $scope.fetchGames = () => {
     let gameArr = [];
-    console.log("Fetch called", $scope.searchText);
+    // console.log("Fetch called", $scope.searchText);
     GameFactory.getGamesFromDatabase($scope.searchText)
     .then( (savedGames) => {
-      console.log("saved games data", savedGames);
+      // console.log("saved games data", savedGames);
       let gameData = savedGames.data.results;
       gameData.forEach( (results) => {
-        console.log("These are the results: ", results);
+        // console.log("These are the results: ", results);
         // gameData[key].id = key;
         gameArr.push(results);
       });
@@ -35,11 +35,11 @@ myApp.controller("HomeController", function($scope, $window, UserFactory, GameFa
   };
 
   $scope.saveGameToUser = (game) => {
-    console.log("This is game data", game);
+    // console.log("This is game data", game);
     game.uid = currentUser;
     GameFactory.postNewGame(game)
     .then( (data) => {
-      console.log("new game data", data);
+      // console.log("new game data", data);
       $window.location.href = '#!/games/userDatabase';
     });
   };

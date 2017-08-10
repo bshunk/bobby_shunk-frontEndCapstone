@@ -13,11 +13,11 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
   };
 
   let getGamesFromDatabase = (searchParameters) => {
-    console.log("searchParameters?", searchParameters.searchTerm);
+    // console.log("searchParameters?", searchParameters.searchTerm);
     return $q( (resolve, reject) => {
       $http.get(`${APIUrl}${APICreds.key}&format=json&query=${searchParameters.searchTerm}&resources=game`)
       .then( (gameData) => {
-        console.log("gameData equals= ", gameData);
+        // console.log("gameData equals= ", gameData);
         resolve(gameData);
       })
       .catch( (err) => {
@@ -28,7 +28,7 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
   };
 
   let postNewGame = (savedGame) => {
-    console.log("savedGame", savedGame);
+    // console.log("savedGame", savedGame);
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseUrl}games.json`,
         angular.toJson(savedGame))
@@ -56,7 +56,7 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
   };
 
   let deleteUserGame = (fbid) => {
-    console.log("game data equals", fbid);
+    // console.log("game data equals", fbid);
     return $q( (resolve, reject) => {
       if(fbid) {
         $http.delete(`${FirebaseUrl}/games/${fbid}.json`)
@@ -73,7 +73,7 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
   };
 
   let saveEditedReview = (game) => {
-    console.log("game equals", game);
+    // console.log("game equals", game);
     return $q( (resolve, reject) => {
       if(game) {
         $http.patch(`${FirebaseUrl}games/${game.fbid}.json`,
