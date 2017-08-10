@@ -13,7 +13,7 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   // authenticates user so data is stored to their account
   UserFactory.isAuthenticated()
   .then( (user) => {
-    console.log("user status", user);
+    // console.log("user status", user);
     currentUser = UserFactory.getUser();
   });
 
@@ -25,7 +25,7 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
     let currentUser = UserFactory.getUser();
     GameFactory.getSavedGames(currentUser)
     .then( (savedGames) => {
-      console.log("Saved games", savedGames);
+      // console.log("Saved games", savedGames);
       let gameData = savedGames.data;
       Object.keys(gameData).forEach( (key) => {
         gameData[key].fbid = key;
@@ -41,20 +41,20 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
 
 
   $scope.deleteUserGame = (fbid) => {
-    console.log("delete called", fbid);
+    // console.log("delete called", fbid);
     GameFactory.deleteUserGame(fbid)
     .then( (data) => {
-      console.log("removed item from userDB", data);
+      // console.log("removed item from userDB", data);
       getAllUserGames();
     });
   };
 
   $scope.saveUserReview = (game) => {
-    console.log("scope.userReview equals", $scope.userReview);
+    // console.log("scope.userReview equals", $scope.userReview);
     game.userReview = $scope.userReview;
     GameFactory.saveEditedReview(game)
     .then( (data) => {
-      console.log("new game data", data);
+      // console.log("new game data", data);
       $window.location.href = '#!/games/userDatabase';
     });
   };
@@ -67,20 +67,6 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   $scope.game = GameFactory.getCurrentGame();
 
   $scope.userReview = "";
-
-  // // controller working with game details
-  // GameFactory.getEditedReview($routeParams.gameId)
-  // .then( (game) => {
-  //   console.log("todo item", game);
-  //   $scope.selectedItem = game;
-  // })
-  // .catch( (err) => {
-  //   console.log("error! No item returned", err );
-  // });
-
-  // $scope.loadEditForm = (selectedGameId) => {
-  //   $window.location.href = `#!/games/edit/${selectedGameId}`;
-  // };
 
 });
 
