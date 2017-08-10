@@ -4,6 +4,8 @@
     <h3>{{game.name}}</h3>
     <p ng-bind-html="game.description"></p>
     <p><img class="gameImage" src="{{game.image.medium_url}}"></p>
-    Enter your review here! <input type="text" placeholder="Custom User Review"><br> 
+    <a class="btn btn-default" ng-href="#!/games/detail/:gameData">See Your Review!</a>
+    <a class="btn btn-default" ng-href="#!/games/edit/:gameData">Edit Your Review!</a>
+    <input type="button" class="btn btn-default" ng-click="deleteGame(savedGameData)" value="Delete This Game">
   </div>
 </div>
