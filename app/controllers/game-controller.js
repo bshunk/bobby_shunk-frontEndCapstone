@@ -58,11 +58,13 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
       $window.location.href = '#!/games/userDatabase';
     });
   };
+    getAllUserGames();
 
   $scope.editGame = (game) => {
     GameFactory.setCurrentGame(game);
     $window.location.href = '#!/games/edit/{{game}}';
   };
+    getAllUserGames();
 
   $scope.game = GameFactory.getCurrentGame();
 
