@@ -24,11 +24,21 @@ myApp.config( ($routeProvider) => {
   })
   .when('/games/home', {
     templateUrl: 'partials/home.html',
-    controller: 'GameController',
+    controller: 'HomeController',
     resolve: {isAuth}
   })
   .when('/games/userDatabase', {
     templateUrl: 'partials/user-games.html',
+    controller: 'GameController',
+    resolve: {isAuth}
+  })
+  .when('/games/detail/:gameData', { // anything after the colon will tell angular to save it as a property on routeParams, here as 'todoId' 
+    templateUrl: 'partials/game-detail.html',
+    controller: 'GameController',
+    resolve: {isAuth}
+  })
+  .when('/games/edit/:gameData', {
+    templateUrl: 'partials/game-form.html',
     controller: 'GameController',
     resolve: {isAuth}
   })

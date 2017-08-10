@@ -6,7 +6,7 @@
     <ul ng-repeat="game in games">
       <li><h2>{{game.name}}</h2></li>
       <!-- <li ng-bind-html="game.description"></li> -->
-      <li><img class="gameImage" src="{{game.image.medium_url}}"></li>
+      <li><img class="gameImage" ng-src="{{game.image.medium_url}}"></li>
       <button ng-click="saveGameToUser(game)">Save</button>
     </ul>
     <br>
