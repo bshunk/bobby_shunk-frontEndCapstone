@@ -46,10 +46,10 @@ myApp.controller("GameController", function($scope, $window, UserFactory, GameFa
 
   // $scope.formTitle = "Save Game";
   $scope.games = [];
-  function fetchUserGames() {
+  function getAllUserGames() {
     let gameArr = [];
     let currentUser = UserFactory.getUser();
-    GameFactory.getSavedGames()
+    GameFactory.getSavedGames(currentUser)
     .then( (savedGames) => {
       console.log("Saved games", savedGames);
       let gameData = savedGames.data;
@@ -63,28 +63,31 @@ myApp.controller("GameController", function($scope, $window, UserFactory, GameFa
       console.log("error", err);
     });
   }
-
-  $scope.getAllUserGames = () => {
-
-  };
-
-  $scope.updateGameReview = (gameItem) => {
-    console.log("update game review");
-    GameFactory.updateGameReview(gameItem)
-    .then( (data) => {
-      console.log("updated review complete");
-    });
-  };
-
-  // deletes save game from user database
-  $scope.deleteGame = (gameId) => {
-    console.log("delete called", gameId);
-    GameFactory.deleteGame(gameId)
-    .then( (data) => {
-      console.log("removed item from userDB", data);
-      fetchUserGames(currentUser);
-    });
-  };
+  getAllUserGames();
 
 
 });
+
+  // $scope.getAllUserGames = () => {
+
+  // };
+
+  // $scope.updateGameReview = (gameItem) => {
+  //   console.log("update game review");
+  //   GameFactory.updateGameReview(gameItem)
+  //   .then( (data) => {
+  //     console.log("updated review complete");
+  //   });
+  // };
+
+  // // deletes save game from user database
+  // $scope.deleteGame = (gameId) => {
+  //   console.log("delete called", gameId);
+  //   GameFactory.deleteGame(gameId)
+  //   .then( (data) => {
+  //     console.log("removed item from userDB", data);
+  //     fetchUserGames(currentUser);
+  //   });
+  // };
+
+

@@ -32,15 +32,5 @@ myApp.config( ($routeProvider) => {
     controller: 'GameController',
     resolve: {isAuth}
   })
-  .when('/games/detail/:gameId', {
-    templateUrl: 'partials/game-detail.html',
-    controller: 'GameController',
-    resolve: {isAuth}
-  })
-  .when('/games/edit/:gameId', {
-    templateUrl: 'partials/game-form.html',
-    controller: 'GameController',
-    resolve: {isAuth}
-  })
   .otherwise('/');
 });
