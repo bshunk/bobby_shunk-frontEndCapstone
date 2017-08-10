@@ -28,7 +28,7 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
       console.log("Saved games", savedGames);
       let gameData = savedGames.data;
       Object.keys(gameData).forEach( (key) => {
-        gameData[key].id = key;
+        gameData[key].fbid = key;
         gameArr.push(gameData[key]);
       });
       $scope.games = gameArr;
@@ -40,17 +40,36 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   getAllUserGames();
 
 
-  $scope.deleteGame = (gameData) => {
-    console.log("delete called", gameData);
-    GameFactory.deleteGame(gameData)
+  $scope.deleteUserGame = (fbid) => {
+    console.log("delete called", fbid);
+    GameFactory.deleteUserGame(fbid)
     .then( (data) => {
       console.log("removed item from userDB", data);
       getAllUserGames();
     });
   };
 
+  $scope.saveUserReview = (game) => {
+    console.log("scope.userReview equals", $scope.userReview);
+    game.userReview = $scope.userReview;
+    GameFactory.saveEditedReview(game)
+    .then( (data) => {
+      console.log("new game data", data);
+      $window.location.href = '#!/games/userDatabase';
+    });
+  };
+
+  $scope.editGame = (game) => {
+    GameFactory.setCurrentGame(game);
+    $window.location.href = '#!/games/edit/{{game}}';
+  };
+
+  $scope.game = GameFactory.getCurrentGame();
+
+  $scope.userReview = "";
+
   // // controller working with game details
-  // GameFactory.getSingleGameItem($routeParams.gameId)
+  // GameFactory.getEditedReview($routeParams.gameId)
   // .then( (game) => {
   //   console.log("todo item", game);
   //   $scope.selectedItem = game;

@@ -1,7 +1,20 @@
-<div>
+<div class="form-group">
   <h1>Edit Your Review</h1>
-  <h3>{{game.name}}</h3>
-  <p ng-bind-html="game.description"></p>
-  <p><img class="gameImage" src="{{game.image.medium_url}}"></p>
-  <input type="text" name="user review"><a></a>
+  <p class="game-text">{{game.name}}</p>
+  <input type="text" name="userReview" ng-model="userReview"><br>
+  <input type="button" class="btn btn-default" value="Save User review" ng-click="saveUserReview(game)">
 </div>
+
+
+
+<!-- <div class="form-group">
+    <h4 class="card-text"><h4> {{workoutItem.BodyPart}}</h4>
+    <p class="card-text">{{workoutItem.description}}</p>
+    <img class="card-img-top" ng-src="{{workoutItem.url}}">
+    <p class="card-text">{{workoutItem.uid}}
+    <input type="text" name="RepsG" ng-model="workoutItem.repsG" placeholder="Reps To Gain Muscle">
+    <input type="text" name="RepsL" ng-model="workoutItem.repsL" placeholder="Reps To Lose Weight">
+    <input type="text" name="Sets" ng-model="workoutItem.sets" placeholder="Number Of Sets">
+    <input type="text" name="Rest" ng-model="workoutItem.Rest" placeholder="Rest Time Between Sets">
+    <input type="button" class="btn btn-default" value="Saved Edited Workout" ng-click="saveUserInput(workoutItem)" style="color:white; background-color: #004B8D;">
+</div>  -->

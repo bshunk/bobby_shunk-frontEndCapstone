@@ -2,6 +2,16 @@
 
 myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds, APIUrl) {
 
+  let currentGame = {};
+
+  let getCurrentGame = () => {
+    return currentGame;
+  };
+
+  let setCurrentGame = (game) => {
+    currentGame = game;
+  };
+
   let getGamesFromDatabase = (searchParameters) => {
     console.log("searchParameters?", searchParameters.searchTerm);
     return $q( (resolve, reject) => {
@@ -34,6 +44,7 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
   let getSavedGames = (userId) => {
     return $q( (resolve, reject) => {
       $http.get(`${FirebaseUrl}games.json?orderBy="uid"&equalTo="${userId}"`)
+      // $http.get(`${FirebaseUrl}games.json`)
       .then( (gameData) => {
         resolve(gameData);
       })
@@ -44,11 +55,11 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
     });
   };
 
-  let deleteGame = (game) => {
-    console.log("game data equals", game);
+  let deleteUserGame = (fbid) => {
+    console.log("game data equals", fbid);
     return $q( (resolve, reject) => {
-      if(game) {
-        $http.delete(`${FirebaseUrl}games/${game.data}.json`)
+      if(fbid) {
+        $http.delete(`${FirebaseUrl}/games/${fbid}.json`)
         .then( (data) => {
           resolve(data);
         })
@@ -56,12 +67,30 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
           reject(err);
         });
       } else {
-        console.log("Sorry, we've lost your fucking game");
+        console.log("Sorry, we've lost your game");
       }
     });
   };
 
-  return{ getGamesFromDatabase, postNewGame, getSavedGames, deleteGame };
+  let saveEditedReview = (game) => {
+    console.log("game equals", game);
+    return $q( (resolve, reject) => {
+      if(game) {
+        $http.patch(`${FirebaseUrl}games/${game.fbid}.json`,
+        angular.toJson(game))
+        .then( (data) => {
+          resolve(data);
+        })
+        .catch( (err) => {
+        reject(err);
+        });
+      } else {
+        console.log("Error can not complete");
+      }
+    });
+  };
+
+  return{ getGamesFromDatabase, postNewGame, getSavedGames, deleteUserGame, saveEditedReview, getCurrentGame, setCurrentGame };
 });
 
 

@@ -2,10 +2,10 @@
   <h1>Checkout Your Games!</h1>
   <div>
     <h3>{{game.name}}</h3>
-    <p ng-bind-html="game.description"></p>
-    <p><img class="gameImage" src="{{game.image.medium_url}}"></p>
     <a class="btn btn-default" ng-href="#!/games/detail/:gameData">See Your Review!</a>
-    <a class="btn btn-default" ng-href="#!/games/edit/:gameData">Edit Your Review!</a>
-    <input type="button" class="btn btn-default" ng-click="deleteGame(game)" value="Delete This Game">
+    <a class="btn btn-default" ng-click="editGame(game)">Edit Your Review!</a>
+    <input type="button" class="btn btn-default" ng-click="deleteUserGame(game.fbid)" value="Delete This Game">
+    <p><img class="gameImage" src="{{game.image.medium_url}}"></p>
+    <p ng-bind-html="game.description"></p>
   </div>
 </div>
