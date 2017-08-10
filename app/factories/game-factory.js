@@ -44,11 +44,11 @@ myApp.factory("GameFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds,
     });
   };
 
-  let deleteGame = (gameData) => {
-    console.log("game data equals", gameData);
+  let deleteGame = (game) => {
+    console.log("game data equals", game);
     return $q( (resolve, reject) => {
-      if(gameData) {
-        $http.delete(`${FirebaseUrl}games/${gameData}.json`)
+      if(game) {
+        $http.delete(`${FirebaseUrl}games/${game.data}.json`)
         .then( (data) => {
           resolve(data);
         })

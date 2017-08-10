@@ -5,15 +5,18 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   // sets the user to null so auth has to be validated through isAuthenticated()
   let currentUser = null;
 
+
   // sets searchText to equal the result of FilterFactory
   $scope.searchText = FilterFactory;
   
+
   // authenticates user so data is stored to their account
   UserFactory.isAuthenticated()
   .then( (user) => {
     console.log("user status", user);
     currentUser = UserFactory.getUser();
   });
+
 
   // $scope.formTitle = "Save Game";
   $scope.games = [];
@@ -36,6 +39,16 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   }
   getAllUserGames();
 
+
+  $scope.deleteGame = (gameData) => {
+    console.log("delete called", gameData);
+    GameFactory.deleteGame(gameData)
+    .then( (data) => {
+      console.log("removed item from userDB", data);
+      getAllUserGames();
+    });
+  };
+
   // // controller working with game details
   // GameFactory.getSingleGameItem($routeParams.gameId)
   // .then( (game) => {
@@ -49,15 +62,6 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   // $scope.loadEditForm = (selectedGameId) => {
   //   $window.location.href = `#!/games/edit/${selectedGameId}`;
   // };
-
-  $scope.deleteGame = (gameData) => {
-    console.log("delete called", gameData);
-    GameFactory.deleteGame(gameData)
-    .then( (data) => {
-      console.log("removed item from userDB", data);
-      getAllUserGames(currentUser);
-    });
-  };
 
 });
 
