@@ -65,7 +65,7 @@ myApp.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds, APICreds)
     });
   };
 
-  console.log("firebase", firebase);
+  // console.log("firebase", firebase);
 
   return {isAuthenticated, getUser, createUser, loginUser, logoutUser};
 
