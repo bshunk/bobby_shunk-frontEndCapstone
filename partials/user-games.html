@@ -5,7 +5,12 @@
     <a class="btn btn-default" ng-click="seeReview(game)">See Your Review!</a>
     <a class="btn btn-default" ng-click="editGame(game)">Edit Your Review!</a>
     <input type="button" class="btn btn-default" ng-click="deleteUserGame(game.fbid)" value="Delete This Game">
-    <p><img class="gameImage" src="{{game.image.medium_url}}"></p>
-    <p ng-bind-html="game.description"></p>
+    <img class="gameImage" src="{{game.image.medium_url}}"><br>
+
+    <button ng-click="toggle()">Description</button>
+    <div class="toggleDescription" ng-show="state">
+      <p ng-bind-html="game.description"></p>
+    </div>
+
   </div>
 </div>

@@ -71,10 +71,13 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
   $scope.userReview = "";
 
   $scope.seeReview = (game) => {
-    console.log("user review for a game =", game);
     GameFactory.setCurrentGame(game);
     $window.location.href = '#!/games/detail/{{game}}';
   };
+  
+  $scope.toggle = function () {
+    $scope.state = !$scope.state;
+  }; 
 
 });
 
