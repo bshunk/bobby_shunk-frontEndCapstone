@@ -3,20 +3,22 @@
   <div>
     <!-- game title -->
     <h3>{{game.name}}</h3>
+    <!-- toggle description -->
+    <a class="btn btn-default" ng-click="toggleDescription(game)">Description</a>
+    <div class="toggleDescription" ng-show="state">
+      <p ng-bind-html="game.description"></p>
+    </div>
+    <br>
+    <!-- game image from API -->
+    <img class="gameImage" ng-src="{{game.image.medium_url}}" height="400" width="400" style="align-content: left"><br>
+    <!-- <img id="trex" ng-src="https://i.pinimg.com/564x/1c/6b/8c/1c6b8c4308bf78a3985db697b136cbd3.jpg" alt="Card image cap" > -->
     <!-- display review button -->
     <a class="btn btn-default" ng-click="seeReview(game)">See Your Review!</a>
     <!-- edit review button -->
     <a class="btn btn-default" ng-click="editGame(game)">Edit Your Review!</a>
     <!-- delete button -->
     <input type="button" class="btn btn-default" ng-click="deleteUserGame(game.fbid)" value="Delete This Game">
-    <!-- game image from API -->
-    <img class="gameImage" src="{{game.image.medium_url}}"><br>
 
-    <!-- toggle description -->
-    <a class="btn btn-default" ng-click="toggleDescription(game)">Description</a>
-    <div class="toggleDescription" ng-show="state">
-      <p ng-bind-html="game.description"></p>
-    </div>
 
   </div>
 </div>

@@ -1,14 +1,19 @@
-<div>
-  <h1>Find A Game!</h1>
-  <input type="text" placeholder="Search games..." ng-model="searchText.searchTerm">
-  <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
-  <div class="gameCards">
-    <ul ng-repeat="game in games">
-      <li><h2>{{game.name}}</h2></li>
-      <button ng-click="saveGameToUser(game)">Save</button>
-      <!-- <li ng-bind-html="game.description"></li> -->
-      <li><img class="gameImage" ng-src="{{game.image.medium_url}}"></li>
-    </ul>
-    <br>
+<div class="homePage">
+  <div class="appTitle">
+    <h1>Welcome To Bob's Game Review!</h1>
+  </div>
+  <br>
+  <div class="gameSearch">
+    <h2>Search For Any Game</h2>
+    <input type="text" placeholder="Search games..." ng-model="searchText.searchTerm">
+    <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
+    <div class="gameCards">
+      <ul ng-repeat="game in games">
+        <li><h2>{{game.name}}</h2></li>
+        <button ng-click="saveGameToUser(game)">Save</button>
+        <!-- <li ng-bind-html="game.description"></li> -->
+        <li><img class="gameImage" ng-src="{{game.image.medium_url}}"></li>
+      </ul>
+      <br>
   </div>
 </div>
