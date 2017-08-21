@@ -1,3 +1,8 @@
+body {
+  background-color: AntiqueWhite;
+  color: #511515;
+}
 
-
-/*# sourceMappingURL=main.css.map */
+.userDataPage {
+  position: center;
+}
