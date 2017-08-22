@@ -75,12 +75,4 @@ myApp.controller("GameController", function($scope, $window, $routeParams, UserF
     $window.location.href = '#!/games/detail/{{game}}';
   };
 
-  $scope.toggleDescription = (game) => {
-    GameFactory.setCurrentGame(game);
-    $scope.state = !$scope.state;
-  };
-
 });
-
-
-  

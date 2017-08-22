@@ -1,13 +1,13 @@
-<section class="login()">
-  <h1>Login or Register</h1>
-  <div>
-    Email: <input type="email" ng-model="account.email">
+<section align="left" class="login()">
+  <h1 style="margin-bottom: 20px;">Login or Register</h1>
+  <div style="margin-bottom: 20px; font-size: 1.25em;">
+    Email: <input style="width: 30%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box; font-size: 1.15em;" type="email" ng-model="account.email">
+  </div>
+  <div style="margin-bottom: 20px; font-size: 1.25em;">
+    Password: <input style="width: 30%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box; font-size: 1.15em;" type="password" ng-model="account.password">
   </div>
   <div>
-    Password: <input type="password" ng-model="account.password">
-  </div>
-  <div>
-    <button class="btn btn-info" ng-click="login()">Log in</button>
-    <button class="btn btn-default" ng-click="register()">Register</button>
+    <button style="margin-bottom: 20px;" class="btn btn-info" ng-click="login()">Log in</button>
+    <button style="margin-bottom: 20px;" class="btn btn-default" ng-click="register()">Register</button>
   </div>
 </section>

@@ -1,14 +1,19 @@
-<div>
-  <h1>Find A Game!</h1>
-  <input type="text" placeholder="Search games..." ng-model="searchText.searchTerm">
-  <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
-  <div class="gameCards">
-    <ul ng-repeat="game in games">
-      <li><h2>{{game.name}}</h2></li>
-      <button ng-click="saveGameToUser(game)">Save</button>
-      <!-- <li ng-bind-html="game.description"></li> -->
-      <li><img class="gameImage" ng-src="{{game.image.medium_url}}"></li>
-    </ul>
-    <br>
+<div class="homePage">
+  <div class="appTitle">
+    <h1 align="center">Want to learn more about your favorite video game? Look no further!</h1>
+  </div>
+  <br>
+  <div align="left" class="gameSearch" style="padding-bottom: 50px;">
+    <h3>Search for any game that comes to mind:</h3>
+    <input style="font-size: 1.25em; width: 30%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box; margin-bottom: 20px;" type="text" placeholder="Search for any game..." ng-model="searchText.searchTerm">
+    <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
+    <div class="gameCards">
+      <ul style="list-style: none;"ng-repeat="game in games">
+        <li style="margin-bottom: 30px; text-decoration: underline;"><h2>{{game.name}}</h2></li>
+        <!-- <li ng-bind-html="game.description"></li> -->
+        <li><img class="gameImage" ng-src="{{game.image.medium_url}}" height="550" width="500" style="border: solid black 2px; align-content: left;"></li>
+        <button style="margin-top: 20px; margin-bottom: 30px;" ng-click="saveGameToUser(game)">Save To Your Games!</button>
+      </ul>
+      <br>
   </div>
 </div>
