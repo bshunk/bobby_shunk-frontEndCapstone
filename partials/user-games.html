@@ -9,13 +9,12 @@
       <div class="toggleDescription" ng-show="bananas" ng-hide="!bananas">
         <p ng-bind-html="game.description"></p>
       </div>
-      <br>
       <!-- game image from API -->
-      <img class="gameImage" ng-src="{{game.image.medium_url}}" height="450" width="400" style="align-content: left"><br>
+      <img class="gameImage" ng-src="{{game.image.medium_url}}" height="450" width="400" style="align-content: left">
       <!-- display review button -->
-      <a class="btn btn-default" ng-click="seeReview(game)">See Your Review!</a>
+      <a class="btn btn-default" ng-click="seeReview(game)">See Your Review!</a><br>
       <!-- edit review button -->
-      <a class="btn btn-default" ng-click="editGame(game)">Edit Your Review!</a>
+      <a class="btn btn-default" ng-click="editGame(game)">Edit Your Review!</a><br>
       <!-- delete button -->
       <input type="button" class="btn btn-default" ng-click="deleteUserGame(game.fbid)" value="Delete This Game">
     </div>
