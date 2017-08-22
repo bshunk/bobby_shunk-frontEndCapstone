@@ -3,7 +3,7 @@
   <div ng-repeat="game in games">
     <div align="left" style="margin: auto; padding: 50px 100px 50px 100px;">
       <!-- game title -->
-      <h3 style="margin-bottom: 20px;">{{game.name}}</h3>
+      <h3 style="margin-bottom: 20px; text-decoration: underline;">{{game.name}}</h3>
       <!-- toggle description -->
       <a style="margin-bottom: 10px; margin-top: 10px;" id="{{game.id}}" class="btn btn-default" ng-click="bananas = !bananas">Description</a>
       <div class="toggleDescription" ng-show="bananas" ng-hide="!bananas">
