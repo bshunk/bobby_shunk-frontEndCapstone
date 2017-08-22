@@ -3,7 +3,7 @@
     <h1>Welcome To Bob's Game Review!</h1>
   </div>
   <br>
-  <div class="gameSearch">
+  <div class="gameSearch" style="padding-bottom: 50px;">
     <h2>Search For Any Game</h2>
     <input type="text" placeholder="Search games..." ng-model="searchText.searchTerm">
     <button value="Fetch Games From API" ng-click="fetchGames()">Click me</button>
@@ -12,7 +12,7 @@
         <li><h2>{{game.name}}</h2></li>
         <button ng-click="saveGameToUser(game)">Save</button>
         <!-- <li ng-bind-html="game.description"></li> -->
-        <li><img class="gameImage" ng-src="{{game.image.medium_url}}"></li>
+        <li><img class="gameImage" ng-src="{{game.image.medium_url}}" height="450" width="400" style="align-content: left;"></li>
       </ul>
       <br>
   </div>
