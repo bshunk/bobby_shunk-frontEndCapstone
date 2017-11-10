@@ -17,7 +17,7 @@
 1. Clone the repo into desired location
 2. Once the back end repository has been cloned and set up, in the command line run ```npm install```
 4. Next, run ```hs -o```
-5. Once the above commands are run, you now are able to use Find A Meeting!
+5. Once the above commands are run, you now are able to use GamePedia!
 
 
 ## Future versions:
